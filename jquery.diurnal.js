@@ -3,7 +3,8 @@
 * Diurnal Parallax
 *
 * Author: Levi Beach (http://levibeach.com)
-* Updated: Tues May 14 20:53:00 2013 -0500
+* Released under the WTFPL license
+* Updated: 2013.05.15
 * 
 */
 
