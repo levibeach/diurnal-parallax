@@ -1,0 +1,124 @@
+/*-------------------------------------------
+	Global Mixins
+-------------------------------------------*/
+// The micro clearfix http://nicolasgallagher.com/micro-clearfix-hack/
+@mixin clearfix() {
+	*zoom:1;
+
+	&:before,
+	&:after {
+		content:"";
+		display:table;
+	}
+	&:after {
+		clear:both;
+	}
+}
+@mixin transition($trans: all, $time: 0.125s, $ease: ease-in-out) {
+		-webkit-transition: $trans $time $ease;
+		-moz-transition: $trans $time $ease;
+		-ms-transition: $trans $time $ease;
+		-o-transition: $trans $time $ease;
+	transition: $trans $time $ease;  
+}
+
+@mixin radius($top-left: 3px, $top-right: 3px, $bottom-right: 3px, $bottom-left: 3px) {
+		-webkit-border-radius: $top-left $top-right $bottom-right $bottom-left;
+  	border-radius: $top-left $top-right $bottom-right $bottom-left;
+}
+
+@mixin box-shadow($x:0, $y:0px, $blur:1px, $spread:0, $color:rgba(0,0,0,0.25)) {
+		-moz-box-shadow: $x $y $blur $spread $color;
+		-webkit-box-shadow: $x $y $blur $spread $color;
+	box-shadow: $x $y $blur $spread $color;
+}
+
+@mixin mirror() {
+		-moz-transform: scaleX(-1); /* Firefox */
+		-webkit-transform: scaleX(-1); /* Safari and Chrome */
+		-ms-transform: scaleX(-1); /* IE 9 */
+		-o-transform: scaleX(-1); /* Opera */
+	transform: scaleX(-1);
+}
+
+@mixin gradient($color1, $color2, $pos1:0%, $pos2:100%) {
+	background: $color1;
+	background: -moz-linear-gradient(top, $color1 $pos1, $color2 $pos2);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop($pos1,$color1), color-stop($pos2,$color2));
+	background: -webkit-linear-gradient(top,  $color1 $pos1, $color2 $pos2);
+	background: -o-linear-gradient(top,  $color1 $pos1, $color2 $pos2);
+	background: -ms-linear-gradient(top,  $color1 $pos1, $color2 $pos2);
+	background: linear-gradient(to bottom,  $color1 $pos1, $color2 $pos2);
+}
+
+@mixin background-stretch() {
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+/*-------------------------------------------
+	Grid
+-------------------------------------------*/
+$column-width: 60px;
+$gutter-width: 0px;
+$columns: 24;
+
+// Utility function — you should never need to modify this
+@function gridsystem-width($columns:$columns) {
+	@return ($column-width * $columns) + ($gutter-width * $columns);
+}
+
+// Set $total-width to 100% for a fluid layout
+$total-width: 100%; //gridsystem-width($columns);
+
+body {
+	position: relative;
+	width: 100%;
+	@include clearfix();
+}
+
+@mixin row($columns:$columns) {
+	display: block;
+	width: $total-width*(($gutter-width + gridsystem-width($columns))/gridsystem-width($columns));
+	margin: 0 $total-width*((($gutter-width*.5)/gridsystem-width($columns))*-1);
+	@include clearfix();
+}
+@mixin column($x,$columns:$columns) {
+	display: inline;
+	float: left;
+	width: $total-width*(((($gutter-width+$column-width)*$x)-$gutter-width) / gridsystem-width($columns));
+	margin: 0 $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+}
+@mixin push($offset:1) {
+	margin-left: $total-width*((($gutter-width+$column-width)*$offset) / gridsystem-width($columns)) + $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+}
+@mixin pull($offset:1) {
+	margin-right: $total-width*((($gutter-width+$column-width)*$offset) / gridsystem-width($columns)) + $total-width*(($gutter-width*.5)/gridsystem-width($columns));
+}
+@mixin grid-element($total-width, $gutter-width, $row-count) {
+	$g: $gutter-width/$total-width;
+	width: ((1 - ($g * ($row-count - 1))) / $row-count) * 100%;
+	margin-right: $g * 100%;
+	margin-bottom: $g * 100%;
+	float: left;
+}
+@mixin grid($total-width, $gutter-width, $row-count, $element) {
+	#{$element} {
+		$g: $gutter-width/$total-width;
+		float: left;
+		margin-bottom: $g * 100%;
+		width: ((1 - ($g * ($row-count - 1))) / $row-count) * 100%;
+		
+		&:nth-child(#{$row-count}n) {
+			margin-right: 0;
+		}
+	}
+	#{$element}:not(:nth-child(#{$row-count}n)) {
+		$g: $gutter-width/$total-width;
+		margin-right: $g * 100%;
+	}
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class=""> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8" />
+		<title>{% block title %}{% endblock %}{{mixture.project_name}}</title>
+
+		{{ "screen.css" | asset_url | stylesheet_tag }}
+
+		<link href="/assets/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		{{ "modernizr.min.js" | asset_url | script_tag }}
+
+		<!--[ Typekit ]-->
+
+		<!--[ Google Maps ]-->
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.6&sensor=false"></script>
+
+		<!--[if (gte IE 6)&(lte IE 8)]>{{ "lib/selectivizr.js" | asset_url | script_tag }}<![endif]-->  
+		<!--[if lt IE 9]>{{ "lib/respond.js" | asset_url | script_tag }}<![endif]-->
+		
+	</head>
+
+	<body id="{% block dataPage %}{% endblock %}" data-page="{% block dataPage %}{% endblock %}">
+		{% include "header" %}
+
+		<div id="page">
+			{% block content %}{% endblock %}
+		</div>
+
+		{% include "footer" %}
+
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="/assets/js/jquery-1.9.0.min.js"><\/script>')</script>
+		{{ "plugins.js" | asset_url | script_tag }}
+		{{ "main.js" | asset_url | script_tag }}
+
+	</body>
+</html>
