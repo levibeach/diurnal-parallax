@@ -3,8 +3,7 @@
 * Diurnal Parallax
 *
 * Author: Levi Beach (http://levibeach.com)
-* Released under the WTFPL license
-* Updated: 2013.05.15
+* Updated: 2013-05-24 21:17
 * 
 */
 
@@ -22,10 +21,14 @@
 
 			// Store the object
 			var $this = $(this);
+
 			var setBg = function() {
 				$this.css({
 					'background-image':'url('+$this.data('bg-image')+')',
 					'background-size':'cover',
+					'-webkit-background-size':'cover',
+					'-moz-background-size':'cover',
+					'-o-background-size':'cover',
 					'background-repeat':'no-repeat',
 					'background-position':' 50% 50%',
 					'background-attachment':'fixed'
@@ -33,7 +36,7 @@
 			};
 			var plax = function() {
 				var offset = $this.offset();
-				var thisOffset = ((offset.top - $(window).scrollTop()) / 15);
+				var thisOffset = ((offset.top - $(window).scrollTop()) / (($this.data('parallax-speed')) ? $this.data('parallax-speed') : s));
 				$this.css({
 					'background-position': 'center ' + (thisOffset) + 'px'
 				});
@@ -45,6 +48,7 @@
 
 			// Call on scroll
 			$(window).scroll(plax);
+			$(window).resize(plax);
 		});
 
 	};
