@@ -37,5 +37,8 @@ Use `dParallax();` on the element you want to have a parallax background.
 		$('.parallax-bg').dParallax();
 	</script>
     
+### Demo
+
+You can view this in action [here](http://levibeach.github.com/diurnal-parallax).
     
  
