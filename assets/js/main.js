@@ -1,24 +1,24 @@
 ;(function( window, document ) {
-	window.SITENAME = window.SITENAME || {};
+	window.DIURNAL = window.DIURNAL || {};
 
-	SITENAME.init = function() {
+	DIURNAL.init = function() {
 
 		// Initialize Utility and Common functions
-		SITENAME.util.init();
-		SITENAME.common.init();
+		DIURNAL.util.init();
+		DIURNAL.common.init();
 
 		// Add "data-page" to body tag to trigger page-specific function
 		var page = document.body.getAttribute( "data-page" );
 
-		if (SITENAME[page] && typeof SITENAME[page]["init"] === "function") {
-			SITENAME[page]["init"]();
+		if (DIURNAL[page] && typeof DIURNAL[page]["init"] === "function") {
+			DIURNAL[page]["init"]();
 		}
 	};
 
 	/*
 	 * Utility/Helper
 	 */
-	SITENAME.util = {
+	DIURNAL.util = {
 		init: function() {
 			var _this = this;
 		}
@@ -27,21 +27,21 @@
 	/*
 	 * Common/Site-Wide
 	 */
-	SITENAME.common = {
+	DIURNAL.common = {
 		init: function() {
 			var _this = this;
-
+			$('.parallax-bg').dParallax(2);
 		}
 	};
 
 	/*
 	 * Page-Specific
 	 */
-	SITENAME.home = {
+	DIURNAL.home = {
 		init: function() {
 			var _this = this;
 		}
 	};
 
-	SITENAME.init();
+	DIURNAL.init();
 })( window, document );

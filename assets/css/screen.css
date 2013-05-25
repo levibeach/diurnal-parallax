@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Raleway:800);
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -139,12 +140,125 @@ body {
 /*-------------------------------------------
 	Misc
 -------------------------------------------*/
+::selection {
+  background: gold;
+  color: #1a1a1a; }
+
+::-moz-selection {
+  background: gold;
+  color: #1a1a1a; }
+
+body {
+  color: #1a1a1a;
+  background-color: #f7f7f7; }
+
 /*-------------------------------------------
 	Typography
 -------------------------------------------*/
+h1, .alpha, h2, .beta, .button {
+  font-family: 'Raleway',Helvetica, Arial, sans-serif;
+  text-transform: uppercase; }
+
+body {
+  font-family: 'PT Serif', Georgia, Times, serif;
+  text-align: center;
+  font-size: 1em; }
+  @media screen and (min-width: 40em) {
+    body {
+      font-size: 1.5em; } }
+  @media screen and (min-width: 40em) {
+    body {
+      font-size: 2em; } }
+  @media screen and (min-width: 60em) {
+    body {
+      font-size: 3em; } }
+
+h1, .alpha {
+  font-size: 3em;
+  text-transform: uppercase;
+  color: white;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+  margin-bottom: .125em; }
+
+h2, .beta {
+  font-size: 1.25em; }
+
+p {
+  background: #f7f7f7;
+  line-height: 1.68;
+  padding: 1em; }
+
+em {
+  font-style: italic; }
+
+@media screen and (min-width: 40em) {
+  small {
+    font-size: 0.65em; } }
+
+a {
+  color: darkgoldenrod; }
+  a:hover {
+    text-decoration: underline; }
+
+.introducing {
+  display: block;
+  margin-bottom: 0.5em; }
+
+.comment {
+  color: #ccc; }
+
+.button {
+  display: inline-block;
+  color: darkgoldenrod;
+  border: 2px solid darkgoldenrod;
+  -webkit-border-radius: 1px 1px 1px 1px;
+  border-radius: 1px 1px 1px 1px;
+  padding: 0.5em 1em;
+  font-size: 0.85em;
+  font-weight: 600; }
+  .button:hover {
+    color: white;
+    background-color: darkgoldenrod;
+    text-decoration: none; }
+
+@media screen and (max-width: 32em) {
+  .github-ribbon {
+    display: none; } }
+
 /*-------------------------------------------
 	Partials
 -------------------------------------------*/
+html, body {
+  height: 100%; }
+
+#page {
+  min-height: 100%;
+  overflow: hidden; }
+
+.block {
+  position: relative;
+  padding-top: 10em;
+  padding-bottom: 10em; }
+  .block.short {
+    padding-top: 5em;
+    padding-bottom: 5em; }
+  .block.shorter {
+    padding-top: 3em;
+    padding-bottom: 3em; }
+
+.wrapper {
+  *zoom: 1;
+  width: 90%;
+  margin: 0 auto; }
+  .wrapper:before, .wrapper:after {
+    content: "";
+    display: table; }
+  .wrapper:after {
+    clear: both; }
+  @media screen and (min-width: 40em) {
+    .wrapper {
+      max-width: 40em; } }
+
 /*-------------------------------------------
    	Extra Classes
 -------------------------------------------*/

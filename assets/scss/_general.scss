@@ -1,12 +1,96 @@
 /*-------------------------------------------
 	Color Variables
 -------------------------------------------*/
-
+$primary: darkgoldenrod;//#de4023;
+$secondary: gold; //#ee5c4d;
+$dark: #1a1a1a;
+$light: #f7f7f7;
 /*-------------------------------------------
 	Misc
 -------------------------------------------*/
+::selection { background: $secondary; color: $dark; }
+::-moz-selection { background: $secondary; color: $dark;}
 
+body {
+	color: $dark;
+	background-color: $light;
+}
 
 /*-------------------------------------------
 	Typography
 -------------------------------------------*/
+// Google Fonts
+@import url(http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700italic|Raleway:800);
+
+%headline-type {
+	font-family: 'Raleway',Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+}
+
+body {
+	font-family: 'PT Serif', Georgia, Times, serif;
+	text-align: center;
+	font-size: 1em;
+	@media screen and (min-width:40em) { font-size: 1.5em }
+	@media screen and (min-width:40em) { font-size: 2em; }
+	@media screen and (min-width:60em) { font-size: 3em; }
+}
+h1, .alpha {
+	@extend %headline-type;
+	font-size: 3em;
+	text-transform: uppercase;
+	color: white;
+	text-shadow: 0 2px 5px rgba(0,0,0,0.15);
+	margin-bottom: .125em;
+}
+h2,.beta {
+	@extend %headline-type;
+	font-size: 1.25em;
+}
+p {
+	background: $light;
+	line-height: 1.68;
+	padding: 1em;
+}
+em {
+	font-style: italic;
+}
+small {
+	@media screen and (min-width:40em) {
+		font-size: 0.65em;
+	}
+}
+a {
+	color: $primary;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+.introducing {
+	display: block;
+	margin-bottom: 0.5em;
+}
+.comment {
+	color: #ccc;
+}
+.button {
+	@extend %headline-type;
+	display: inline-block;
+	color: $primary;
+	border: 2px solid $primary;
+	@include radius(1px, 1px, 1px, 1px);
+	padding: 0.5em 1em;
+	font-size: 0.85em;
+	font-weight: 600;
+	&:hover {
+		color: white;
+		background-color: $primary;
+		text-decoration: none;
+	}	
+}
+
+.github-ribbon {
+	@media screen and (max-width:32em) {
+		display: none;
+	}
+}

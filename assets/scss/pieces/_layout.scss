@@ -1,0 +1,28 @@
+html,body {
+	height: 100%;
+}
+#page {
+	min-height:100%;
+	overflow: hidden;
+}
+.block {
+	position: relative;
+	padding-top: 10em;
+	padding-bottom: 10em;
+	&.short {
+		padding-top: 5em;
+		padding-bottom: 5em;
+	}
+	&.shorter {
+		padding-top: 3em;
+		padding-bottom: 3em;
+	}
+}
+.wrapper {
+	@include clearfix();
+	width: 90%;
+	margin: 0 auto;
+	@media screen and (min-width:40em) {
+		max-width: 40em;
+	}
+}
