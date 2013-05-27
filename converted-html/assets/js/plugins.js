@@ -1493,7 +1493,7 @@ $.extend($.fn.cycle.API, {
 * Diurnal Parallax
 *
 * Author: Levi Beach (http://levibeach.com)
-* Updated: Tues May 14 20:53:00 2013 -0500
+* Updated: 2013-05-27 12:41
 * 
 */
 
@@ -1514,7 +1514,7 @@ $.extend($.fn.cycle.API, {
 
 			var setBg = function() {
 				$this.css({
-					'background-image':'url('+$this.data('bg-image')+')',
+					'background-image':'url('+$this.data('parallax-image')+')',
 					'background-size':'cover',
 					'-webkit-background-size':'cover',
 					'-moz-background-size':'cover',
@@ -1528,7 +1528,7 @@ $.extend($.fn.cycle.API, {
 				var offset = $this.offset();
 				var thisOffset = ((offset.top - $(window).scrollTop()) / (($this.data('parallax-speed')) ? $this.data('parallax-speed') : s));
 				$this.css({
-					'background-position': 'center ' + (thisOffset) + 'px'
+					'background-position': '50% ' + (thisOffset) + 'px'
 				});
 			};
 
@@ -1536,7 +1536,7 @@ $.extend($.fn.cycle.API, {
 			setBg();
 			plax();
 
-			// Call on scroll
+			// Call on scroll and resize
 			$(window).scroll(plax);
 			$(window).resize(plax);
 		});
