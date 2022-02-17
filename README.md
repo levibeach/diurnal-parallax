@@ -45,6 +45,6 @@ Use `dParallax();` on the element you want to have a parallax background.
     
 ### Demo
 
-You can view this in action [here](http://levibeach.github.com/diurnal-parallax).
+You can view this in action [here](https://levibeach.com/diurnal-parallax/).
     
  
