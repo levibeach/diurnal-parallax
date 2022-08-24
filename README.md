@@ -1,4 +1,6 @@
-> WARNING: This project is not maintained. Use at your own risk.
+⚠️ WARNING: This project is not maintained. Use at your own risk.
+
+---
 
 # Diurnal Parallax
 
